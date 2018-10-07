@@ -1,0 +1,69 @@
+.register-form {
+  /* min-width: 50px; */
+  max-width: 500px;
+  width: 100%;
+}
+
+.register-full-width {
+  width: 100%;
+}
+
+.register-card {
+  position: fixed;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   width:100%;
+   height: auto;
+  left: 50%;
+  max-width: 400px;
+  opacity: 0.3;
+   transition: opacity .7s ease-in;
+   background:  url(../../assets/images/offwhite.jpg) no-repeat center center fixed;
+   background-size: cover;
+}
+
+
+
+.wrapper:hover .register-card {
+    opacity : 1
+}
+
+.register-header-image {
+  background-size: cover;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:  url(../../assets/images/angularback1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.card-header {
+  padding: 5px;
+}
+
+.card-title {
+  text-align: center;
+  margin: .2em .5em;
+  padding: 5px;
+}
+
+.font {
+  font: 400 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+  font-size: 2em;
+  color: #673AB7;
+}
+
+.button-font {
+  font: 400 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+  font-size: 1em;
+  color: #FFF;
+}

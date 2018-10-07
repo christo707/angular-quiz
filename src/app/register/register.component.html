@@ -1,0 +1,58 @@
+<div class="background">
+  <div class="wrapper">
+<mat-card class="register-card mat-elevation-z24">
+
+  <div class="card-header" >
+
+    <div class="card-title font"><strong>Register</strong></div>
+
+  </div>
+  <br>
+
+  <mat-card-content>
+    <form class="register-form" [formGroup]="registerationForm" (ngSubmit)="onFormSubmit()">
+
+    <table class="register-full-width" cellspacing="0">
+    <tr>
+      <td>
+          <mat-form-field class="register-full-width">
+            <input matInput placeholder="First name" #fname name="fname" formControlName="fnameFormControl" [(ngModel)]="userModel.fname" >
+            <mat-error *ngIf="registerationForm.controls['fnameFormControl'].hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+      </td>
+    </tr>
+    <br>
+      <tr>
+      <td>
+        <mat-form-field class="register-full-width">
+          <input matInput placeholder="Last Name" #lname name="lname" formControlName="lnameFormControl" [(ngModel)]="userModel.lname">
+          <mat-error *ngIf="registerationForm.controls['lnameFormControl'].hasError('required')">
+                      Last Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    </table>
+<br>
+    <mat-form-field class="register-full-width">
+      <input matInput placeholder="Email" #email name="email" formControlName="emailFormControl" [(ngModel)]="userModel.email"  >
+      <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('email') && !registerationForm.controls['emailFormControl'].hasError('required')">
+      Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+  </mat-form-field>
+  <br>
+  <br>
+  <div style="text-align: center; padding: 10px;">
+    <button mat-raised-button color="primary" [disabled]="!registerationForm.valid" type="submit"><span class="button-font"> Start Quiz </span></button>
+</div>
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
+<!-- [formControl]="emailFormControl" -->
