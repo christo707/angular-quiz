@@ -10,6 +10,8 @@ export class QuizComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("In Quiz: ");
+    console.log(localStorage.getItem('participant'));
   }
 
 }

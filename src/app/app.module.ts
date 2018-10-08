@@ -11,6 +11,11 @@ import { ResultComponent } from './result/result.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { Page404Component } from './page404/page404.component';
+import { QuizService } from './shared/quiz.service';
+import { AuthGuard } from './auth/auth.guard';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,8 @@ import { Page404Component } from './page404/page404.component';
     NavbarComponent,
     QuizComponent,
     ResultComponent,
-    Page404Component
+    Page404Component,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +33,15 @@ import { Page404Component } from './page404/page404.component';
     AppMaterialModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [QuizService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
