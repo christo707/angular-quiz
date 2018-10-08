@@ -14,8 +14,8 @@ import { Page404Component } from './page404/page404.component';
 import { QuizService } from './shared/quiz.service';
 import { AuthGuard } from './auth/auth.guard';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,11 +35,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    HttpClientModule
   ],
   providers: [QuizService, AuthGuard],
   bootstrap: [AppComponent]

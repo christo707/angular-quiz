@@ -6,27 +6,43 @@
     <span >Answer Questions for Quiz</span>
   </mat-toolbar-row>
 </mat-toolbar>
+<br>
+<br>
+<mat-card class="quiz-card">
+  <div class="header-card ">
+    <div class="card-container-left">
+      <h4>Question {{quizService.qnProgress+1}}.</h4>
+    </div>
+      <div class="card-container-right">
+        <h4>Time Elapsed: {{quizService.displayTimeElapsed()}}</h4>
+      </div>
+  </div>
+  <mat-card-content>
+    <div class="ques">
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      <!-- bred for hunting. {{quizService.qns[quizService.qnProgress].Qn}} -->
+    </div>
+    <mat-list>
+        <mat-divider></mat-divider>
+      <!-- <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
+           <li *ngIf="option != null" (click)="answer(quizService.qns[quizService.qnProgress].QnID,i)">
+           <mat-list-item>{{option}}</mat-list-item>
+           <mat-divider></mat-divider>
+           </li>
+         </ng-container> -->
 
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br><br>
+      <mat-list-item>Item 1</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Item 2</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Item 3</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Item 4</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
 <br>
 <br>
 <br>
