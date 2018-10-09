@@ -11,7 +11,7 @@ import { QuizService } from '../shared/quiz.service';
 })
 export class RegisterComponent implements OnInit {
 
-  userModel = new User('', '', '',0,'');
+  userModel = new User('', '', '',0,0);
 
   registerationForm = new FormGroup({
 
@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
       localStorage.clear();
+      this.quizService.clear();
   }
 
 onFormSubmit() {

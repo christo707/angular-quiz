@@ -4,6 +4,6 @@ export class User {
     public lname: string,
     public email: string,
     public score: number,
-    public time: string
+    public time: number
   ) {}
 }

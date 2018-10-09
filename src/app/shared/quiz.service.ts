@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,Headers, RequestOptions  } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from "rxjs";
+import { User } from '../user';
+import { Question } from '../question';
 
 @Injectable({
   providedIn: 'root'
@@ -22,27 +24,36 @@ export class QuizService {
 
     getParticipantName() {
       var participant = JSON.parse(localStorage.getItem('participant'));
-      return participant.Name;
+      return participant.fname + participant.lname;
     }
 
-    submitScore(name: string, email: string, score: number, time: number) {
+//name: string, email: string, score: number, time: number
+
+    submitScore(user: User) : any {
       console.log("Posting Participant: ");
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json' );
-      const requestOptions = new RequestOptions({ headers: headers });
+      let httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+      let options = {
+        headers: httpHeaders
+      };
       var body = {
-        name: name,
-        email: email,
-        score: score,
-        time: number
+        name: user.fname + ' ' + user.lname,
+        email: user.email,
+        score: user.score,
+        time: user.time
       }
-      return this.http.post(this.rootUrl + '/participant', JSON.stringify(body), requestOptions).pipe(
-        map(res => res.json()));
+      return this.http.post(this.rootUrl + '/participants', JSON.stringify(body), options);
     }
 
-    getQuestions() {
-      return this.http.get(this.rootUrl + '/questions').pipe(
-        map(res => res.json()));
+    getQuestions(): Observable<Question[]> {
+      return this.http.get<Question[]>(this.rootUrl + '/questions');
+    }
+
+    clear() {
+      this.qns = [];
+      this.seconds = 0;
+      this.qnProgress = 0;
+      this.correctAnswerCount = 0;
+      clearInterval(this.timer);
     }
 
 }

@@ -4,6 +4,6 @@ export class Question {
     public qn: string,
     public options: string[],
     public correct: number,
-    public choosen: number
+//    public choosen: number
   ) {}
 }
