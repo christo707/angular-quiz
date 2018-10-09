@@ -19,18 +19,16 @@
   </div>
   <mat-card-content>
     <div class="ques">
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      <!-- bred for hunting. {{quizService.qns[quizService.qnProgress].Qn}} -->
+  {{quizService.qns[quizService.qnProgress].qn}}
     </div>
     <mat-list>
         <mat-divider></mat-divider>
-      <!-- <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
+      <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
            <li *ngIf="option != null" (click)="answer(quizService.qns[quizService.qnProgress].QnID,i)">
            <mat-list-item>{{option}}</mat-list-item>
            <mat-divider></mat-divider>
            </li>
-         </ng-container> -->
+         </ng-container>
 
       <mat-list-item>Item 1</mat-list-item>
       <mat-divider></mat-divider>

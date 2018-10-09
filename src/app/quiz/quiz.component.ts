@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../shared/quiz.service';
-import { Question } from '../question';
 
 @Component({
   selector: 'app-quiz',
@@ -20,8 +19,6 @@ export class QuizComponent implements OnInit {
     this.quizService.clear();
     this.quizService.getQuestions().subscribe(
       (questions) => {
-        questions.map(question => question.json())
-        console.log('Data: ' + questions[0]);
         this.quizService.qns = questions;
         this.startTimer();
       }
@@ -37,6 +34,7 @@ export class QuizComponent implements OnInit {
   }
 
   answer(qID, choice) {
+    console.log('Saving Answer for ques Id: ' + qID);
     this.quizService.qns[this.quizService.qnProgress].answer = choice;
     localStorage.setItem('qns', JSON.stringify(this.quizService.qns));
     this.quizService.qnProgress++;
