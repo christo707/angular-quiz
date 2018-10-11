@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../shared/quiz.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private quizService : QuizService,private route : Router) { }
 
   ngOnInit() {
   }
 
 signout(){
   console.log('In SignOut');
+  localStorage.clear();
+  this.quizService.clear();
+  this.route.navigate(['/register']);
 }
 
 }

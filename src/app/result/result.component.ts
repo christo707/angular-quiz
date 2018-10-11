@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { QuizService } from '../shared/quiz.service';
 
 @Component({
   selector: 'app-result',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private quizService: QuizService) { }
+
+  
 
   ngOnInit() {
   }

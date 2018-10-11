@@ -36,7 +36,7 @@ export class QuizService {
         headers: httpHeaders
       };
       var body = {
-        name: user.fname + ' ' + user.lname,
+        name: user.name,
         email: user.email,
         score: user.score,
         time: user.time

@@ -16,28 +16,22 @@
     <tr>
       <td>
           <mat-form-field class="register-full-width">
-            <input matInput placeholder="First name" #fname name="fname" formControlName="fnameFormControl" [(ngModel)]="userModel.fname" >
-            <mat-error *ngIf="registerationForm.controls['fnameFormControl'].hasError('required')">
-              First Name is <strong>required</strong>
+             <mat-label>Name Please</mat-label>
+            <input matInput  #name name="name" formControlName="nameFormControl" [(ngModel)]="userModel.name" >
+            <mat-error *ngIf="registerationForm.controls['nameFormControl'].hasError('required')">
+             Name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
       </td>
     </tr>
     <br>
-      <tr>
-      <td>
-        <mat-form-field class="register-full-width">
-          <input matInput placeholder="Last Name" #lname name="lname" formControlName="lnameFormControl" [(ngModel)]="userModel.lname">
-          <mat-error *ngIf="registerationForm.controls['lnameFormControl'].hasError('required')">
-                      Last Name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </td>
-    </tr>
-    </table>
+
 <br>
+<tr>
+  <td>
     <mat-form-field class="register-full-width">
-      <input matInput placeholder="Email" #email name="email" formControlName="emailFormControl" [(ngModel)]="userModel.email"  >
+      <mat-label>Email ho jaye</mat-label>
+      <input matInput placeholder="Email Ho jaye" #email name="email" formControlName="emailFormControl" [(ngModel)]="userModel.email"  >
       <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('email') && !registerationForm.controls['emailFormControl'].hasError('required')">
       Please enter a valid email address
       </mat-error>
@@ -45,6 +39,9 @@
         Email is <strong>required</strong>
       </mat-error>
   </mat-form-field>
+</td>
+</tr>
+    </table>
   <br>
   <br>
   <div style="text-align: center; padding: 10px;">

@@ -16,6 +16,13 @@
 
 }
 
+.option-button:hover  {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #512DA8;
+  font-weight:bold;
+}
+
+
 .header-card {
   padding: 10px;
   color: black;
@@ -23,6 +30,12 @@
   width: 100%;
   display: flex !important;
  justify-content: space-between;
+}
+
+.option-button {
+  -webkit-transition: border-radius font-weight box-shadow .08s; /*   Safari */
+  transition: border-radius font-weight box-shadow .08s;
+  width: 100%;
 }
 
 .card-container-right{

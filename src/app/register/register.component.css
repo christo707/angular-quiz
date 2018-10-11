@@ -20,11 +20,15 @@
   max-width: 400px;
   opacity: 0.3;
    transition: opacity .7s ease-in;
-   background:  url(../../assets/images/offwhite.jpg) no-repeat center center fixed;
+   background:  url(../../assets/images/offwhite1.jpeg) no-repeat center center fixed;
    background-size: cover;
+   border-radius: 10px;
+   box-shadow: 5px 5px 10px #512DA8;
 }
 
-
+mat-label {
+       color: #512DA8;
+     }
 
 .wrapper:hover .register-card {
     opacity : 1

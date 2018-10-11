@@ -11,15 +11,11 @@ import { QuizService } from '../shared/quiz.service';
 })
 export class RegisterComponent implements OnInit {
 
-  userModel = new User('', '', '',0,0);
+  userModel = new User('', '',0,0);
 
   registerationForm = new FormGroup({
 
-  fnameFormControl : new FormControl('', [
-    Validators.required
-  ]),
-
-  lnameFormControl : new FormControl('', [
+  nameFormControl : new FormControl('', [
     Validators.required
   ]),
 
@@ -38,8 +34,7 @@ export class RegisterComponent implements OnInit {
 onFormSubmit() {
   localStorage.clear();
   localStorage.setItem('participant',JSON.stringify(this.userModel));
-  this.userModel.fname = '';
-  this.userModel.lname = '';
+  this.userModel.name = '';
   this.userModel.email = '';
   this.route.navigate(['/quiz']);
 }

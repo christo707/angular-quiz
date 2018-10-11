@@ -8,7 +8,7 @@
 </mat-toolbar>
 <br>
 <br>
-<mat-card class="quiz-card">
+<mat-card *ngIf="quizService.qns && this.quizService.qnProgress != quizService.qns.length" class="quiz-card mat-elevation-z4">
   <div class="header-card ">
     <div class="card-container-left">
       <h4>Question {{quizService.qnProgress+1}}.</h4>
@@ -19,25 +19,18 @@
   </div>
   <mat-card-content>
     <div class="ques">
-  {{quizService.qns[quizService.qnProgress].qn}}
+<strong>  {{quizService.qns[quizService.qnProgress].qn}} </strong>
     </div>
     <mat-list>
         <mat-divider></mat-divider>
-      <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
-           <li *ngIf="option != null" (click)="answer(quizService.qns[quizService.qnProgress].QnID,i)">
-           <mat-list-item>{{option}}</mat-list-item>
+      <ng-container  *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
+           <div *ngIf="option != null" (click)="answer(quizService.qns[quizService.qnProgress].id,i)" class="wrapper">
+           <button mat-button class="option-button">
+             <mat-list-item>{{option}}</mat-list-item>
+          </button>
            <mat-divider></mat-divider>
-           </li>
+         </div>
          </ng-container>
-
-      <mat-list-item>Item 1</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Item 2</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Item 3</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Item 4</mat-list-item>
-      <mat-divider></mat-divider>
     </mat-list>
   </mat-card-content>
 </mat-card>
