@@ -11,9 +11,16 @@ export class ResultComponent implements OnInit {
 
   constructor(private router: Router, private quizService: QuizService) { }
 
-  
+
 
   ngOnInit() {
   }
+
+  retry() {
+    this.router.navigate(['/quiz']);
+
+
+  }
+
 
 }

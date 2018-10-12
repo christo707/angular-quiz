@@ -3,33 +3,38 @@
 
 <mat-toolbar color="primary" class="result-toolbar">
   <mat-toolbar-row class="desc">
-    <span >Quiz Completed !!!</span>
+    <span>Quiz Completed !!!</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <br>
 <br>
-<mat-card  class="result-card mat-elevation-z8">
-  <span class="font">
-  <h2>
-    Congratulations!!!!
+<mat-card class="result-card mat-elevation-z8">
+<span>
+<h2 class="cong font">
+  Congratulations!!!!
   </h2>
-</span>
+  </span>
 
   <div class="parent-div">
-    <span>
+    <span class="child-div-left">
       <img src="/assets/images/trophy.png" class="result-img">
     </span>
-    <span>
-  <h2>
-    {{quizService.correctAnswerCount}} / 5 <!-- {{quizService.correctAnswerCount}} / {{quizService.qns.length}} *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length"-->
-  </h2>
-  <h3>
-  <!-- Time Taken : {{quizService.displayTimeElapsed()}} --> {{quizService.displayTimeElapsed()}}
-  </h3>
-</span>
+    <span class="child-div-right font">
+      <h3>
+        Total Score: {{quizService.correctAnswerCount}} / 5
+        <!-- {{quizService.correctAnswerCount}} / {{quizService.qns.length}} *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length"-->
+      </h3>
+      <h4>
+        Time Taken :
+        <!-- {{quizService.displayTimeElapsed()}} --> {{quizService.displayTimeElapsed()}}
+      </h4>
+    </span>
+  </div>
+    <div class="parent-div">
+<span></span>
+  <button mat-fab color="warn" (click)="retry()"><i class="material-icons md-36">replay</i></button>
 </div>
-
 </mat-card>
 
 <app-footer></app-footer>
