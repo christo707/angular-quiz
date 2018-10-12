@@ -17,7 +17,7 @@
       <td>
           <mat-form-field class="register-full-width">
              <mat-label>Name Please</mat-label>
-            <input matInput  #name name="name" formControlName="nameFormControl" [(ngModel)]="userModel.name" >
+            <input matInput  #name name="name" autocomplete="off" formControlName="nameFormControl" [(ngModel)]="userModel.name" >
             <mat-error *ngIf="registerationForm.controls['nameFormControl'].hasError('required')">
              Name is <strong>required</strong>
             </mat-error>
@@ -31,7 +31,7 @@
   <td>
     <mat-form-field class="register-full-width">
       <mat-label>Email ho jaye</mat-label>
-      <input matInput placeholder="Email Ho jaye" #email name="email" formControlName="emailFormControl" [(ngModel)]="userModel.email"  >
+      <input matInput placeholder="Email Ho jaye" autocomplete="off" #email name="email" formControlName="emailFormControl" [(ngModel)]="userModel.email"  >
       <mat-error *ngIf="registerationForm.controls['emailFormControl'].hasError('email') && !registerationForm.controls['emailFormControl'].hasError('required')">
       Please enter a valid email address
       </mat-error>

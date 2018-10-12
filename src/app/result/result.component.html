@@ -7,18 +7,29 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<br>
+<br>
+<mat-card  class="result-card mat-elevation-z8">
+  <span class="font">
+  <h2>
+    Congratulations!!!!
+  </h2>
+</span>
 
-<h2>
-  {{quizService.correctAnswerCount}} / {{quizService.qns.length}}
-</h2>
-<h3>
-Time Taken : {{quizService.displayTimeElapsed()}}
-</h3>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
+  <div class="parent-div">
+    <span>
+      <img src="/assets/images/trophy.png" class="result-img">
+    </span>
+    <span>
+  <h2>
+    {{quizService.correctAnswerCount}} / 5 <!-- {{quizService.correctAnswerCount}} / {{quizService.qns.length}} *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length"-->
+  </h2>
+  <h3>
+  <!-- Time Taken : {{quizService.displayTimeElapsed()}} --> {{quizService.displayTimeElapsed()}}
+  </h3>
+</span>
+</div>
+
+</mat-card>
+
 <app-footer></app-footer>

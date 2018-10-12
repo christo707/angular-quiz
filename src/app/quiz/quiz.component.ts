@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../shared/quiz.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-quiz',
@@ -9,11 +10,15 @@ import { QuizService } from '../shared/quiz.service';
 })
 export class QuizComponent implements OnInit {
 
+  user: User;
+
   constructor(private router: Router, private quizService: QuizService) { }
 
   ngOnInit() {
     console.log("In Quiz: ");
     console.log("Participant: " + localStorage.getItem('participant'));
+    let u = JSON.parse(localStorage.getItem('participant'));
+    this.user = new User(u.name, u.email, u.score, u.time);
     this.quizService.clear();
     this.quizService.getQuestions().subscribe(
       (questions) => {
@@ -45,8 +50,16 @@ export class QuizComponent implements OnInit {
     localStorage.setItem('qnProgress', this.quizService.qnProgress.toString());
     console.log(this.quizService.qns[this.quizService.qnProgress - 1]);
     if (this.quizService.qnProgress == this.quizService.qns.length) {
+      this.user.score = this.quizService.correctAnswerCount;
       clearInterval(this.quizService.timer);
-      this.router.navigate(['/result']);
+      this.user.time = this.quizService.displayTimeElapsed();
+      this.quizService.submitScore(this.user).subscribe(
+        data => {
+          console.log('Participant Posted : ' + data);
+          this.router.navigate(['/result']);
+        }, err => {
+          console.log(err);
+        });
     }
   }
 
