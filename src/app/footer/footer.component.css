@@ -1,9 +1,9 @@
 .fixed-footer {
   bottom: 0;
-  position: fixed;
+  position: relative;
   height: 100px;
   padding: 12px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .logo {
