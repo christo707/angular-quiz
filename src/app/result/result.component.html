@@ -9,6 +9,7 @@
 
 <br>
 <br>
+<div style="min-height: 80%;">
 <mat-card class="result-card mat-elevation-z8">
 <span>
 <h2 class="cong font">
@@ -36,5 +37,34 @@
   <button mat-fab color="warn" (click)="retry()"><i class="material-icons md-36">replay</i></button>
 </div>
 </mat-card>
-
+<br>
+<div *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length">
+<mat-card *ngFor="let question of quizService.qns; let i = index" class="result-card mat-elevation-z8">
+  <div class="header-card ">
+    <div class="card-container-left">
+      <h4>Question {{i}}.</h4>
+    </div>
+      <div class="card-container-right">
+        <!-- <h4>Time Elapsed: {{quizService.displayTimeElapsed()}}</h4> -->
+      </div>
+  </div>
+  <mat-card-content>
+    <div class="ques">
+<strong>  {{question.qn}} </strong>
+    </div>
+    <mat-list>
+        <mat-divider></mat-divider>
+      <ng-container  *ngFor="let option of question.options;let i = index">
+           <div *ngIf="option != null" class="wrapper">
+           <!-- <button mat-button class="option-button"> -->
+             <mat-list-item>{{option}}</mat-list-item>
+          <!-- </button> -->
+           <mat-divider></mat-divider>
+         </div>
+         </ng-container>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
 <app-footer></app-footer>

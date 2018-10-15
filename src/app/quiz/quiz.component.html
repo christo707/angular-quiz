@@ -8,6 +8,7 @@
 </mat-toolbar>
 <br>
 <br>
+<div style="min-height: 80%;">
 <mat-card *ngIf="quizService.qns && this.quizService.qnProgress != quizService.qns.length" class="quiz-card mat-elevation-z8">
   <div class="header-card ">
     <div class="card-container-left">
@@ -34,5 +35,5 @@
     </mat-list>
   </mat-card-content>
 </mat-card>
-
+</div>
 <app-footer></app-footer>
