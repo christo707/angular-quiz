@@ -23,12 +23,12 @@
     </span>
     <span class="child-div-right font">
       <h3>
-        Total Score: {{quizService.correctAnswerCount}} / 5
-        <!-- {{quizService.correctAnswerCount}} / {{quizService.qns.length}} *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length"-->
+        Total Score: {{quizService.correctAnswerCount}} / {{quizService.qns.length}}
+        <!-- {{quizService.correctAnswerCount}} /  *ngIf="quizService.qns && this.quizService.qnProgress == quizService.qns.length"-->
       </h3>
       <h4>
-        Time Taken :
-        <!-- {{quizService.displayTimeElapsed()}} --> {{quizService.displayTimeElapsed()}}
+        Time Taken : {{quizService.displayTimeElapsed()}}
+        <!-- {{quizService.displayTimeElapsed()}} -->
       </h4>
     </span>
   </div>
@@ -45,20 +45,21 @@
       <h4>Question {{i}}.</h4>
     </div>
       <div class="card-container-right">
-        <!-- <h4>Time Elapsed: {{quizService.displayTimeElapsed()}}</h4> -->
+
       </div>
   </div>
   <mat-card-content>
     <div class="ques">
 <strong>  {{question.qn}} </strong>
+
     </div>
+    <br>
     <mat-list>
         <mat-divider></mat-divider>
       <ng-container  *ngFor="let option of question.options;let i = index">
-           <div *ngIf="option != null" class="wrapper">
-           <!-- <button mat-button class="option-button"> -->
-             <mat-list-item>{{option}}</mat-list-item>
-          <!-- </button> -->
+           <div *ngIf="option != null" class="parent-div">
+             <div class="child-div-left-option"><mat-list-item>{{option}}</mat-list-item></div>
+             <div class="child-div-right-option" *ngIf="(i == question.correct || i == question.answer)"> <img [src]=" i == question.correct ? '/assets/images/right.png' : '/assets/images/wrong.png'" class="option-result-img"></div>
            <mat-divider></mat-divider>
          </div>
          </ng-container>

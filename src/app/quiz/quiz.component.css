@@ -13,8 +13,14 @@
 .quiz-card {
   margin-left: 10%;
   margin-right: 10%;
-
 }
+
+.progress-bar {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 
 .option-button:hover  {
   border-radius: 10px;

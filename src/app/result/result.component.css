@@ -33,18 +33,36 @@
 .child-div-left {
   text-align: center;
   vertical-align: center;
-  width: 45%;
+  width: 40%;
 }
 
 .child-div-right {
-  align-content: left;
+  text-align: left !important;
+  vertical-align: middle;
+  width: 60%;
+}
+
+.child-div-left-option {
+  text-align: center;
   vertical-align: center;
-  width: 55%;
+  width: 70%;
+}
+
+.child-div-right-option {
+  text-align: right !important;
+  vertical-align: middle;
+  width: 30%;
 }
 
 .result-img {
   width: 250px;
   height: 250px;
+}
+
+.option-result-img {
+  width: 30px;
+  height: 30px;
+  margin-top: 3%;
 }
 
 .cong {

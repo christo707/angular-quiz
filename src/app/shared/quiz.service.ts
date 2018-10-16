@@ -15,6 +15,7 @@ export class QuizService {
   timer;
   qnProgress: number;
   correctAnswerCount: number = 0;
+  participantPosted: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -53,6 +54,7 @@ export class QuizService {
       this.seconds = 0;
       this.qnProgress = 0;
       this.correctAnswerCount = 0;
+      this.participantPosted = false;
       clearInterval(this.timer);
     }
 

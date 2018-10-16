@@ -56,9 +56,12 @@ export class QuizComponent implements OnInit {
       this.quizService.submitScore(this.user).subscribe(
         data => {
           console.log('Participant Posted : ' + data);
+          this.quizService.participantPosted = true;
           this.router.navigate(['/result']);
         }, err => {
-          console.log(err);
+          console.log('Participant Post Failed : ' + err);
+          this.quizService.participantPosted = false;
+          this.router.navigate(['/result']);
         });
     }
   }
