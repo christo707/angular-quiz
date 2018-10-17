@@ -9,7 +9,7 @@ import { Question } from '../question';
 })
 export class QuizService {
 
-  readonly rootUrl = 'http://localhost:3000';
+  readonly rootUrl = 'https://my-json-server.typicode.com/christo707/FakeJsonServer';
   qns: any[];
   seconds: number;
   timer;

@@ -11,14 +11,24 @@ import { User } from '../user';
 export class QuizComponent implements OnInit {
 
   user: User;
+  loaded: boolean = true;
 
-  constructor(private router: Router, private quizService: QuizService) { }
+  constructor(private router: Router, public quizService: QuizService) { }
 
   ngOnInit() {
     console.log("In Quiz: ");
     console.log("Participant: " + localStorage.getItem('participant'));
     let u = JSON.parse(localStorage.getItem('participant'));
     this.user = new User(u.name, u.email, u.score, u.time);
+     if (parseInt(localStorage.getItem('seconds')) > 0) {
+       this.quizService.seconds = parseInt(localStorage.getItem('seconds'));
+       this.quizService.qnProgress = parseInt(localStorage.getItem('qnProgress'));
+       this.quizService.qns = JSON.parse(localStorage.getItem('qns'));
+       if (this.quizService.qnProgress == (this.quizService.qns).length)
+          this.router.navigate(['/result']);
+       else
+          this.startTimer();
+     } else {
     this.quizService.clear();
     this.quizService.getQuestions().subscribe(
       (questions) => {
@@ -26,8 +36,9 @@ export class QuizComponent implements OnInit {
         if (this.quizService.qnProgress == (this.quizService.qns).length)
             this.router.navigate(['/result']);
         this.startTimer();
-      }
-    );
+        this.loaded = false;
+      });
+    }
   }
 
   startTimer() {
