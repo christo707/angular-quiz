@@ -11,7 +11,8 @@ import { User } from '../user';
 export class QuizComponent implements OnInit {
 
   user: User;
-  loaded: boolean = true;
+  loading: boolean = true;
+
 
   constructor(private router: Router, public quizService: QuizService) { }
 
@@ -21,22 +22,30 @@ export class QuizComponent implements OnInit {
     let u = JSON.parse(localStorage.getItem('participant'));
     this.user = new User(u.name, u.email, u.score, u.time);
      if (parseInt(localStorage.getItem('seconds')) > 0) {
+        console.log('P: ' + this.loading);
        this.quizService.seconds = parseInt(localStorage.getItem('seconds'));
        this.quizService.qnProgress = parseInt(localStorage.getItem('qnProgress'));
        this.quizService.qns = JSON.parse(localStorage.getItem('qns'));
        if (this.quizService.qnProgress == (this.quizService.qns).length)
           this.router.navigate(['/result']);
-       else
+       else{
+          this.loading = false;
           this.startTimer();
+        }
      } else {
+       console.log(this.loading);
     this.quizService.clear();
     this.quizService.getQuestions().subscribe(
       (questions) => {
         this.quizService.qns = questions;
+        localStorage.setItem('qns', JSON.stringify(this.quizService.qns));
+        localStorage.setItem('correctAnswerCount', '0');
+        localStorage.setItem('qnProgress', '0');
         if (this.quizService.qnProgress == (this.quizService.qns).length)
             this.router.navigate(['/result']);
+        this.loading = false;
         this.startTimer();
-        this.loaded = false;
+
       });
     }
   }
@@ -61,17 +70,21 @@ export class QuizComponent implements OnInit {
     localStorage.setItem('qnProgress', this.quizService.qnProgress.toString());
     console.log(this.quizService.qns[this.quizService.qnProgress - 1]);
     if (this.quizService.qnProgress == this.quizService.qns.length) {
+      this.loading = true;
       this.user.score = this.quizService.correctAnswerCount;
       clearInterval(this.quizService.timer);
       this.user.time = this.quizService.displayTimeElapsed();
+      console.log('1: ' +  JSON.stringify(this.user));
       this.quizService.submitScore(this.user).subscribe(
         data => {
-          console.log('Participant Posted : ' + data);
+          console.log('Participant Posted : ' + JSON.stringify(data));
           this.quizService.participantPosted = true;
+          this.loading = false;
           this.router.navigate(['/result']);
         }, err => {
           console.log('Participant Post Failed : ' + err);
           this.quizService.participantPosted = false;
+          this.loading = false;
           this.router.navigate(['/result']);
         });
     }
