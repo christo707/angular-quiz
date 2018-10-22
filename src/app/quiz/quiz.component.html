@@ -14,7 +14,7 @@
     <img class="loader-quiz-img" src="/assets/images/loader.gif">
   </div>
 
-  <mat-progress-bar *ngIf="loading" class="progress-bar" mode="determinate" [value]="quizService.qnProgress * (100/quizService.qns.length)"></mat-progress-bar>
+  <mat-progress-bar *ngIf="!loading" class="progress-bar" mode="determinate" [value]="quizService.qnProgress * (100/quizService.qns.length)"></mat-progress-bar>
 <mat-card *ngIf="quizService.qns && this.quizService.qnProgress != quizService.qns.length" class="quiz-card mat-elevation-z8">
   <div class="header-card ">
     <div class="card-container-left">
