@@ -11,3 +11,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 # angular-quiz
 Quiz Application built using angular 6
+
+# Check out the app:
+
+https://christo-angular-quiz.herokuapp.com
